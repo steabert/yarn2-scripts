@@ -16,14 +16,7 @@ if [[ -z "$1" ]]; then
 fi
 msg="$1"
 
-declare TYPES=( "fix" "feat" )
-
-regexp="^("
-for type in ${TYPES[@]}; do
-	regexp="${regexp}$type|"
-done
-regexp="${regexp})(\(\w+\))?!?:[[:space:]](.*)[^.]$"
-
+regexp='^(fix|feat|chore|docs)(\([[:alnum:]_]+\))?!?:[[:space:]][^[:space:]](.*)[^.]$'
 if [[ ! "$msg" =~ $regexp ]]; then
 	echo "bad commit message: \"$msg\""
 	exit 1
