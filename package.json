@@ -1,3 +1,8 @@
 {
-  "name": "yarn2-scripts"
+  "name": "yarn2-scripts",
+  "scripts": {
+    "changelog": "bash changelog",
+    "commitlint": "bash commitlint",
+    "release": "bash release"
+  }
 }
