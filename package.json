@@ -3,6 +3,7 @@
   "scripts": {
     "changelog": "bash changelog",
     "commitlint": "bash commitlint",
-    "release": "bash release"
+    "release": "bash release",
+    "test": "bash commitlint.test.sh"
   }
 }

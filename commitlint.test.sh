@@ -9,8 +9,9 @@ declare GOOD_MESSAGES=( \
 )
 
 for msg in "${GOOD_MESSAGES[@]}"; do
-        if ./commitlint.sh "$msg"; then
-                echo "great"
+        if ! bash commitlint "$msg"; then
+                echo "Test commitlint: FAILURE"
+                exit 1
         fi
 done
 
@@ -22,8 +23,10 @@ declare BAD_MESSAGES=( \
 )
 
 for msg in "${BAD_MESSAGES[@]}"; do
-        if ./commitlint.sh "$msg"; then
-                echo "great"
+        if bash commitlint "$msg"; then
+                echo "Test commitlint: FAILURE"
+                exit 1
         fi
 done
 
+echo "Test commitlint: SUCCESS"
